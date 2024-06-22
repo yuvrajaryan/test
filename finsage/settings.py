@@ -71,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'finsage.wsgi.application'
 
-
+#test i made a change
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
