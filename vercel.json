@@ -1,13 +1,27 @@
 {
-    "builds": [{
+    "version": 2,
+    "builds": [
+      {
         "src": "finsage/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.7" }
-    }],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "finsage/wsgi.py"
+      },
+      {
+        "src": "build_files.sh",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "staticfiles_build"
         }
+      }
+    ],
+    "routes": [
+      {
+        "src": "proj/static/(.*)",
+        "dest": "proj/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "finsage/wsgi.py"
+      }
     ]
-}
+  }
